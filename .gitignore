@@ -1,0 +1,9 @@
+/.idea
+/build
+atlassian-*.xml
+tmp
+*.bak
+*.swp
+*.tar.gz
+lsyncd.conf
+
