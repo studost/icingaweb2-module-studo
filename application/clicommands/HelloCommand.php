@@ -1,5 +1,10 @@
 <?php
 
+namespace Icinga\Module\Studo\Clicommands;
+
+use Icinga\Cli\Command;
+use Icinga\Exception\ProgrammingError;
+
 /**
  * This is where we say hello
  *
@@ -16,11 +21,6 @@
  * getRows() und getColumns() um wo möglich den verwendbaren Platz zu ermitteln
  * hasUtf8() um UTF8-Unterstützung des Terminals abzufragen
  */
-namespace Icinga\Module\Studo\Clicommands;
-
-use Icinga\Cli\Command;
-use Icinga\Exception\ProgrammingError;
-
 class HelloCommand extends Command
 {
 
@@ -42,8 +42,14 @@ class HelloCommand extends Command
      */
     public function somethingAction()
     {
-        echo "I just wanted to say something!\n";
+        $what = $this->params->shift();
+        if ($what === 'nice') {
+            echo "What a great audience today\n";
+        } else {
+            echo "I just wanted to say something!\n";
+        }
     }
+
 
     /**
      * Say hello as someone
